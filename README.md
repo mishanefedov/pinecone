@@ -2,4 +2,6 @@
 Testing VectorDB
 
 # Start
-``` bash node client.js
+``` bash 
+node client.js
+```
