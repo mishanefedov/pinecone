@@ -15,31 +15,37 @@ await pinecone.init({
 //     },
 // });
 
-const index = pinecone.Index("test-index");
+const index = pinecone.Index("test");
+console.log("Index: \n" + index.describeIndexStatsRaw)
 const upsertRequest = {
   vectors: [
     {
       id: "vec1",
       values: [0.1, 0.2, 0.3, 0.4],
       metadata: {
-        genre: "drama",
+        genre: "vec1",
       },
     },
     {
       id: "vec2",
       values: [0.2, 0.3, 0.4, 0.5],
       metadata: {
-        genre: "action",
+        genre: "vec2",
       },
     },
   ],
   namespace: "test-namespace",
 };
-const upsertResponse = await index.upsert({ upsertRequest });
+
+try {
+  const upsertResponse = await index.upsert({ upsertRequest });
+} catch (error) {
+  console.log(error)
+}
 
 const indexDescription = await pinecone.describeIndex({
-    indexName: "test-index",
+    indexName: "test",
 });
 
-console.log(upsertResponse);
+// console.log(upsertResponse);
 console.log(indexDescription);
