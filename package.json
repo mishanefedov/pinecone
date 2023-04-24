@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.0.14",
+    "dotenv": "^16.0.3"
+  }
+}
