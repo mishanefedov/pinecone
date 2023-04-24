@@ -15,7 +15,7 @@ await pinecone.init({
 //     },
 // });
 
-const index = pinecone.Index("example-index");
+const index = pinecone.Index("test-index");
 const upsertRequest = {
   vectors: [
     {
@@ -33,12 +33,12 @@ const upsertRequest = {
       },
     },
   ],
-  namespace: "example-namespace",
+  namespace: "test-namespace",
 };
 const upsertResponse = await index.upsert({ upsertRequest });
 
 const indexDescription = await pinecone.describeIndex({
-    indexName: "example-index",
+    indexName: "test-index",
 });
 
 console.log(upsertResponse);
